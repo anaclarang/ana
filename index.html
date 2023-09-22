@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        body{
+            margin: 10%;
+            background-color: white;
+
+
+        }
+        h2{
+            background-color: aquamarine;
+            color: darkgray;
+
+
+        }
+        h1{
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>REALIZE SEU CADASTRO</h1>
+    <h1>ADOÇÃO DE ANIMAIS</h1>
+    <form name="submit-to-google-sheet1">    
+
+<h2>Qual seu nome completo?</h2>
+<select name="nome">
+<input name="nome" type="text" placeholder="Mensagem"
+</select>
+
+<h2>Qual seu endereço completo?</h2>
+<select name="endereço">
+<input name="endereço" type="text" placeholder="Mensagem">
+</select>
+
+<h2>Você é maior de idade?</h2>
+<input name="idade" type="radio" value="sim" >
+<label name="Sim" for="Sim">
+ Sim, sou maior de idade
+ </label>
+ <input name="idade" type="radio" value="não" >
+<label name="Não" for="Não">
+ Não sou maior maior de idade
+ </label>
+
+<h2>Você assume o compromisso de cuidar do animal escolhido?</h2>
+<input name="compromisso" type="radio" value="sim" >
+<label name="Sim" for="Sim">
+ Sim
+ </label>
+ <input name="compromisso" type="radio" value="não" >
+<label name="Não" for="Não">
+ Não
+ </label>
+
+ <h2>Possui algum animal em casa? Se sim, quantos?</h2>
+<input name="animal-casa" type="radio" value="1" >
+<label name="1" for="1">
+ 1 animal
+ </label>
+ <input name="animal-casa" type="radio" value="2" >
+<label name="2" for="2">
+ 2 animais 
+ </label>
+ <input name="animal-casa" type="radio" value="3" >
+<label name="3" for="3">
+ 3 animais 
+ </label>
+ <input name="animal-casa" type="radio" value="<3" >
+<label name="<3" for="<3">
+ Acima de 3 animais 
+ </label>
+</label>
+<input name="animal-casa" type="radio" value="nenhum" >
+<label name="nenhum" for="nenhum">
+Nenhum 
+</label>
+
+<h2>Marque o que um animal representa pra você.</h2>
+<input name="representa" type="checkbox" id="inlineCheckbox1" value="amor e carinho">
+<label name="representa" for="inlineCheckbox1">Amor e carinho</label>
+<input name="representa" type="checkbox" id="inlineCheckbox1" value="nada">
+<label name="representa" for="inlineCheckbox1">Nada</label>
+<input name="representa" type="checkbox" id="inlineCheckbox1" value="estimação">
+<label name="representa" for="inlineCheckbox1">Bicho de estimação</label>
+<input name="representa" type="checkbox" id="inlineCheckbox1" value="obejeto">
+<label name="representa" for="inlineCheckbox1">Obejeto</label>
+
+<h2>De qual forma conheceu nosso projeto de adoçaõ?</h2>
+<input name="conheceu" type="checkbox" value="sim" >
+<label name="conheceu" for="conheceu">
+    Redes sociais
+</label>
+<input name="conheceu1" type="checkbox" value="sim" >
+<label name="conheceu1" for="conheceu1">
+    Jornal
+</label>
+<input name="conheceu2" type="checkbox" value="sim" >
+<label name="conheceu2" for="conheceu2">
+    Amigos
+</label>
+<input name="conheceu3" type="checkbox" value="sim" >
+<label name="conheceu3" for="conheceu3">
+    Whatshap
+</label>
+
+<h2>Deixe aqui sua sugestão para melhor atendê-lo.</h2>
+<input name="sugestao" type="text" placeholder="Mensagem">
+<button type="submit">Envie sua mensagem</button>
+</form>
+
+
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyKJ5J-1D-aZ70uNK1Yd1LG_2NaepCnDCX0Z4OMvG8qH-KBkbM_rYsdoTG6Y0sE9R3G-Q/exec'
+    const form = document.forms['submit-to-google-sheet1']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+      form.reset();
+    })
+  </script>
